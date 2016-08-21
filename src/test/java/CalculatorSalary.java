@@ -46,24 +46,22 @@ public class CalculatorSalary {
         }
 
     //    driver.findElement(By.id("calculate")).click();
-        driver.get("http://some_url");
-        WebElement dynamicElement = (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("dynamicElement_id")));
-
         driver.get(baseUrl+"calculator/salary/result");
+        WebElement dynamicElement = (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("\\\\span[@class=\"resultData\"]\\..\\..\\..\\div[@title=\"Net Pay\"]")));
         driver.manage().timeouts().implicitlyWait(101,TimeUnit.SECONDS);
         driver.manage().window().maximize();
         String expectedResult = "$8,387.79";
-        String actualResult = driver.findElement(By.id("fn_o1_1")).getAttribute("value");
-        while(actualResult.contains(Character.toString((char)160))) {
-            String replace = actualResult.replace(Character.toString((char)160), "");
-            actualResult=replace;
-        }
-
+        String actualResult = driver.findElement(By.xpath("\\\\span[@class=\"resultData\"]\\..\\..\\..\\div[@title=\"Net Pay\"]")).getAttribute("value");
+//        while(actualResult.contains(Character.toString((char)160))) {
+//            String replace = actualResult.replace(Character.toString((char)160), "");
+//            actualResult=replace;
+//        }
+//
         assertEquals(actualResult, expectedResult);
 //        (new WebDriverWait(driver,10))
 //                .until(ExpectedConditions.textToBePresentInElement(result,expectedResult));
-        assertEquals(actualResult,expectedResult);
+
 
     }
 
