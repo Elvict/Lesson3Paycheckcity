@@ -19,10 +19,6 @@ public class CalculatorHourly {
 
     @Test
     public void fillParametersAndCalculateHourly() throws Exception {
-//       baseUrl = "https://trello.com/login/";
-         //      System.setProperty("webdriver.ie.driver", "C:\\Java\\Selenium\\IEDriverServer.exe");
-       //      driver = new InternetExplorerDriver();
-//       capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
         driver = new FirefoxDriver();
         driver.get("http://www.paycheckcity.com/");
         driver.get(baseUrl+"calculator/hourly/");

@@ -24,6 +24,7 @@ public class CalculatorSalary {
 
         driver = new FirefoxDriver();
         driver.get(baseUrl+"calculator/salary/");
+        System.out.println(baseUrl+"calculator/salary/");
         driver.manage().timeouts().implicitlyWait(101,TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
@@ -31,7 +32,7 @@ public class CalculatorSalary {
     @Test
     public void fillParametersAndCalculateSalary() throws Exception {
         String expectedResult = "$8,387.79";
-        
+
         driver.findElement(By.id("calcDate")).clear();
         driver.findElement(By.id("calcDate")).sendKeys("08/31/2016");
         driver.findElement(By.id("state")).clear();
@@ -63,6 +64,6 @@ public class CalculatorSalary {
 
     @AfterMethod
     public void tearDown() throws Exception {
-//        driver.quit();
+        driver.quit();
     }
 }
