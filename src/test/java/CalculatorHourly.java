@@ -14,13 +14,14 @@ public class CalculatorHourly {
     private String baseUrl = "http://www.paycheckcity.com/";
     private WebDriver driver;
 //    DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
-
+//WebElement source = driver.findElement(By.xpath(".//a[text()=\"Second card\" and @class=\"list-card-title js-card-name\"]"));
+//    WebElement target = driver.findElement(By.xpath("//textarea[contains(text(),'Advanced')]"));
 
     @Test
     public void fillParametersAndCalculateHourly() throws Exception {
 //       baseUrl = "https://trello.com/login/";
          //      System.setProperty("webdriver.ie.driver", "C:\\Java\\Selenium\\IEDriverServer.exe");
- //            driver = new InternetExplorerDriver();
+       //      driver = new InternetExplorerDriver();
 //       capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
         driver = new FirefoxDriver();
         driver.get("http://www.paycheckcity.com/");
@@ -36,7 +37,7 @@ public class CalculatorHourly {
         WebElement dynamicElement = (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("\\\\span[@class=\"resultData\"]\\..\\..\\..\\div[@title=\"Net Pay\"]")));
 
-
+ //       source = driver.findElement(By.xpath(".//a[text()=\"Second card\" and @class=\"list-card-title js-card-name\"]"));
 
     }
 
